@@ -1,0 +1,117 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Poster Layout
+% LaTeX Template
+% Version 1.0 (4/7/19)
+%
+% Authors:
+% Debraj Ghose (debraj.ghose@duke.edu)
+%
+% License:
+% The MIT License (see included LICENSE file)
+%
+% Rant:
+% Every LaTeX poster layout I found online either looked like fucking garbage or was a nightmare to edit because it was married to Beamer, which is a presentation tool that should not exist. If one is using LaTeX to make a poster, but having to manually specify the location of every section, wtf is the point of using LaTeX? I want my posters to incubate in the comforting womb of the article document class in landscape mode and (hopefully) emerge as seemple and sexi. I hope this layout serves you well. Love, DG.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[10pt]{article}
+
+%% Language and font encodings
+\usepackage[english]{babel}
+%\usepackage[utf8x]{inputenc}
+\usepackage[T1]{fontenc}
+
+%% set font
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage{lmodern}
+
+
+%% Sets page size and margins
+\usepackage[a4paper,landscape,top=.2cm,bottom=.2cm,left=.2cm,right=.2cm,marginparwidth=.75cm]{geometry}
+
+
+%% change following parameters to make your poster fit a single page
+\usepackage{titlesec}
+\titlespacing{\section}{0pt}{5pt}{3pt} %change spacing between section title and text. {Left space}{Above}{Below}
+\linespread{0.01} %adjust line spacing
+\usepackage{scrextend}
+\changefontsizes[10pt]{5pt} %I use this all the time to all fit
+\setlength{\parindent}{0pt}%remove paragraph indent
+\setlength{\parskip}{1.5pt}%adjust line spacing between paragraphs
+
+%% Set up multicolumnness
+
+\usepackage{multicol}
+\usepackage{lipsum}% dummy text
+\setlength{\columnseprule}{0.4pt} %comment this out if you don't like the lines separating columns
+\newenvironment{Figure} %this is to insert figures in columns
+  {\par\medskip\noindent\minipage{\linewidth}}
+  {\endminipage\par\medskip}
+
+%% Useful packages
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage[colorinlistoftodos]{todonotes}
+\usepackage[colorlinks=true, allcolors=black]{hyperref}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{hyperref}
+\usepackage{xcolor}%Use this to color text as needed
+\usepackage{tikzpagenodes} % use this to add logos or other decorations
+
+%% List of sexi colors
+
+\definecolor{blue}{rgb}{0.3, 0.4, 0.8}
+\definecolor{green}{rgb}{0.3, 0.7, 0.4}
+\definecolor{red}{rgb}{0.7, 0.4, 0.3}
+
+%% Bibliography
+
+\usepackage[style=science]{biblatex} % Hey, I'm no luxury journal fanboy. Only using this because they have a concise bibliography format, which works great for posters.
+\bibliography{References}
+\usepackage{csquotes}
+
+\begin{document}
+
+\begin{center}
+    
+{\Huge \textbf{A yeast cell's polarity patch movement is biased up pheromone gradients by actin-mediated amplification of differential receptor signaling}     } % heading
+
+{\large{Debraj Ghose$^1$}} % authors
+
+{\footnotesize 1. Duke University } % affiliation
+
+\end{center}
+
+\vspace{1cm}
+
+% Add logos
+
+\begin{tikzpicture}[remember picture,overlay,shift={(current page.north west)}]
+\node[anchor=north west , xshift=0mm,yshift=-1cm]{\includegraphics[height=0.8cm]{DukeLogo.pdf}};
+
+\node[anchor=north west , xshift=20mm,yshift=-1cm]{\includegraphics[height=0.8cm]{UNCLogo.pdf}};
+
+\node[anchor=north west , xshift = 24cm , yshift=-1.2cm]{\huge{debraj.ghose@duke.edu}};
+
+\end{tikzpicture}
+
+% all content goes here
+
+\begin{multicols}{3}
+
+\section*{ \color{blue}Introduction and background}
+
+\lipsum[2-4]
+
+\section*{ \color{green}Results}
+
+\lipsum[2-4]
+
+\section*{\color{red}}Conclusion
+
+\lipsum[2-4]
+
+\end{multicols}
+
+\end{document}
